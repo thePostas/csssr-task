@@ -9,7 +9,9 @@ class UserInfoComponent extends Component{
             ...props,
             stateFields: []
         };
+        this.initialize = this.props.initialize.bind(this)();
     }
+
     render () {
         const currentFields = this.props.fields.map((field, index) => {
             return <InputContainer key={index} fieldId={index} title={field.title} value={field.value}/>
@@ -38,10 +40,24 @@ const mapStateToProps = function(state) {
             fields: state.fields
         };
     }
+};
 
+const mapDispatchToProps = function(dispatch) {
+    return {
+        initialize: function() {
+            dispatch({
+                type: "INITIALIZE",
+                payload: {
+                    fields: this.state.fields
+                }
+            });
+        }
+    };
 };
 
 
+
 export const UserInfo = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(UserInfoComponent);

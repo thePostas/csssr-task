@@ -11,6 +11,16 @@ export function taskReducer(state = {}, action) {
                     })
                 })
         }
+        case "INITIALIZE": {
+            return Object.assign(
+                {},
+                state,
+                {
+                    fields: action.payload.fields.map((field) => {
+                        return field;
+                    })
+                })
+        }
         default: return state;
     }
 }
