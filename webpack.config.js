@@ -24,7 +24,16 @@ module.exports = {
                     'css-loader',
                     'less-loader'
                 ],
-            }
+            },
+            {
+                test: /\.(jpg|png)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "./img/[hash].[ext]",
+                    },
+                },
+            },
         ]
     },
     devtool: 'source-map',
