@@ -12,8 +12,8 @@ class TextInput extends Component {
 
     render() {
         return (
-            <label className={'main-content__user-info-label'}>
-                <h3>{this.props.title}</h3>
+            <label className={'main-content__user-info-label profile__title_bold'}>
+                <h3 className={'main-content__user-info-title'}>{this.props.title}</h3>
                 <input onChange={this.onChange} fieldId={this.props.fieldId} type={'text'} className="main-content__user-info-input" value={this.state.value}/>
             </label>
         )

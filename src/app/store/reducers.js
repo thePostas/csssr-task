@@ -12,6 +12,9 @@ export function taskReducer(state = {}, action) {
                 })
         }
         case "INITIALIZE": {
+            if (state.length === 0) {
+
+            }
             return Object.assign(
                 {},
                 state,
