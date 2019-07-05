@@ -1,21 +1,21 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import { Checkbox } from "../components/main/checbox"
+import { CheckBox } from "../containers/checkbox"
 
-class Skills extends Component{
+class SkillsComponent extends Component{
     constructor(props) {
         super(props);
     }
 
     render () {
         const firstContainer = this.props.skills[0].map((item, index) => {
-              return <Checkbox value={item.value} checked={item.checked} key={index}/>
+            return <CheckBox value={item.value} checked={item.checked} key={index}/>
           });
         const secondContainer = this.props.skills[1].map((item, index) => {
-            return <Checkbox value={item.value} checked={item.checked} key={index}/>
+            return <CheckBox value={item.value} checked={item.checked} key={index}/>
         });
         const thirdContainer = this.props.skills[2].map((item, index) => {
-            return <Checkbox value={item.value} checked={item.checked} key={index}/>
+            return <CheckBox value={item.value} checked={item.checked} key={index}/>
         });
         console.log(firstContainer);
         return (
@@ -54,4 +54,4 @@ const mapDispatchToProps = function(dispatch) {
 export const SkillsBlock = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Skills);
+)(SkillsComponent);

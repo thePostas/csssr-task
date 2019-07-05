@@ -26,8 +26,8 @@ const initialState = {
             {value: 'Webpack', checked: true},
             {value: 'Дружу с WebGL', checked: false},
             {value: 'jQuery', checked: false},
-            {value: 'Знаю/изучаю Angular', checked: true},
-            {value: 'Знаю/изучаю React', checked: false},
+            {value: 'Знаю/изучаю Angular', checked: false},
+            {value: 'Знаю/изучаю React', checked: true},
             {value: 'Знаю/изучаю Node.js', checked: false},
         ],
         [

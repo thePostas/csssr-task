@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-class TextInput extends Component {
+class TextInputComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,7 +20,7 @@ class TextInput extends Component {
     }
 }
 
-TextInput.defaultProps = {
+TextInputComponent.defaultProps = {
     title: 'Title',
     value: 'Value'
 };
@@ -43,4 +43,4 @@ const mapDispatchToProps = function(dispatch) {
 export const InputContainer = connect(
     null,
     mapDispatchToProps
-)(TextInput);
+)(TextInputComponent);

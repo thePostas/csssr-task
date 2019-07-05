@@ -1,6 +1,6 @@
 import React from "react";
 import { UserInfo } from "../../containers/userInfo";
-import { SkillsBlock } from "../../containers/skills";
+import { SkillsBlock } from "../../containers/skillsBlock";
 
 export const MainContent = props => {
     return (

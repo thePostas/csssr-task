@@ -24,6 +24,22 @@ export function taskReducer(state = {}, action) {
                     })
                 })
         }
+        case "UPDATE_CHECKBOX": {
+            return Object.assign(
+                {},
+                state,
+                {
+                    skills: state.skills.map((block, index) => {
+                        block.map((item) => {
+                            if (item.value === action.payload.title) {
+                                item.checked = action.payload.checked;
+                            }
+                            return item;
+                        });
+                        return block;
+                    })
+                })
+        }
         default: return state;
     }
 }
