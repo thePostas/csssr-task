@@ -10,7 +10,34 @@ const initialState = {
     // {title: 'Место жительства', value: 'г. Москва, ул. Широкая д.10 к.2'},
     // {title: 'Скайп', value: 'thepostas'},
     // {title: 'Почта', value: 'postas87@mail.ru'},
-]
+],
+    skills: [
+        [
+            {value: 'БЭМ/OOCSS', checked: true},
+            {value: 'Pug (Jade)', checked: false},
+            {value: 'Stylus/LESS/SASS', checked: true},
+            {value: 'Работаю с SVG', checked: true},
+            {value: 'Верстаю семантично', checked: true},
+            {value: 'Accessibility(A11Y)', checked: false},
+            {value: 'ES2015/ES2016', checked: true},
+        ],
+        [
+            {value: 'Gulp/GRUNT', checked: true},
+            {value: 'Webpack', checked: true},
+            {value: 'Дружу с WebGL', checked: false},
+            {value: 'jQuery', checked: false},
+            {value: 'Знаю/изучаю Angular', checked: true},
+            {value: 'Знаю/изучаю React', checked: false},
+            {value: 'Знаю/изучаю Node.js', checked: false},
+        ],
+        [
+            {value: 'Использую GIT', checked: true},
+            {value: 'С глазомером всё ок', checked: true},
+            {value: 'Читаю blog.csssr.ru', checked: false},
+            {value: 'Я ленивый(-ая)', checked: false},
+            {value: 'У меня хороший английский', checked: true},
+        ]
+    ]
 };
 
 export const store = createStore(taskReducer, initialState, applyMiddleware(logger));

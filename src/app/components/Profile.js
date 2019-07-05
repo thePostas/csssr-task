@@ -5,6 +5,6 @@ export const Profile = props => {
     return (
         <div className={"profile"}>
             <HeaderContainer/>
-            <MainContent />
+            <MainContent/>
         </div>);
 };
