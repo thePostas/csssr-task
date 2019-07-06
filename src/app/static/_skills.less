@@ -1,8 +1,61 @@
+//Раздел  'Расскажите о себе'
 .main-content__skills{
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  //Позиционирование блока
+  &_position {
+    margin-top: 55px;
+  }
+  //Блок контейнеров с чекбоксами
+  &-checkboxes-set {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  //Контейнер с чекбоксам
   &-checkbox-container {
     display: flex;
     flex-direction: column;
     width: 33.3%;
+    //Обертка чекбокса
+    &-label {
+      padding-left: 27px;
+      background: url("../img/checkbox.png") no-repeat 0 5px;
+      display: flex;
+      margin-bottom: 8px;
+      position: relative;
+      &-checked:after {
+        content: '';
+        left: 6px;
+        bottom: 2px;
+        position: absolute;
+        width: 19px;
+        height: 29px;
+        background: url("../img/checkbox_checked.png") no-repeat;
+      }
+    }
+    //Чекбокс
+    &-item {
+      display: none;
+      //Текст чекбокса
+      &-title {
+        font-size: 21px;
+      }
+    }
+  }
+  //Заголовок блока
+  &-title {
+    color: #2f1b15;
+    font-size: 24px;
+    margin-bottom: 9px;
+  }
+  //Описание блока
+  &-description {
+    font: 15px PTSansRegular, sans-serif;
+    color: #3d3d3d;
+    line-height: 1.5;
+    word-spacing: -0.4px;
+    margin-bottom: 27px;
   }
 }
+// Конец блока 'Расскажите о себе'

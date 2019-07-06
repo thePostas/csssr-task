@@ -18,7 +18,7 @@ const initialState = {
             {value: 'Stylus/LESS/SASS', checked: true},
             {value: 'Работаю с SVG', checked: true},
             {value: 'Верстаю семантично', checked: true},
-            {value: 'Accessibility(A11Y)', checked: false},
+            {value: 'Accessibility (A11Y)', checked: false},
             {value: 'ES2015/ES2016', checked: true},
         ],
         [

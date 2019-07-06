@@ -9,7 +9,7 @@ class CheckBoxComponent extends Component {
 
     render() {
         return (
-            <label className={'main-content__skills-checkbox-container-label'}><input type={'checkbox'} className={'main-content__skills-checkbox-container-item'} onClick={this.onClick} value={this.props.value} checked={this.props.checked}/>{this.props.value}</label>
+            <label className={this.props.checked? 'main-content__skills-checkbox-container-label' : 'main-content__skills-checkbox-container-label main-content__skills-checkbox-container-label-checked'}><input type={'checkbox'} className={'main-content__skills-checkbox-container-item'} onClick={this.onClick} value={this.props.value} checked={this.props.checked}/><p className={'main-content__skills-checkbox-container-item-title'}>{this.props.value}</p></label>
         )
     }
 }
