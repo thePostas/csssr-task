@@ -35,7 +35,7 @@ UserInfoComponent.defaultProps = {
 };
 
 const mapStateToProps = function(state) {
-    if (!state.fields || state.fields.length !== 0) {
+    if (state.fields || state.fields.length !== 0) {
         return {
             fields: state.fields
         };

@@ -67,7 +67,7 @@ SkillsComponent.defaultProps = {
 };
 
 const mapStateToProps = function(state) {
-    if (!state.skills || state.skills.length !== 0) {
+    if (state.skills || state.skills.length !== 0) {
         return {
             skills: state.skills
         };

@@ -10,7 +10,6 @@ class SliderComponent extends Component{
         this.ref = React.createRef();
         this.initialize = this.props.initialize.bind(this)();
         this.setSkill = this.props.setSkill.bind(this);
-        this.setPosition = this.setPosition.bind(this);
     }
 
     setPosition(position) {
@@ -56,7 +55,7 @@ SliderComponent.defaultProps = {
 };
 
 const mapStateToProps = function(state) {
-    if (!state.jsSkill || state.jsSkill === 'undefined' || state.jsSkill === null) {
+    if (state.jsSkill || state.jsSkill !== 'undefined' || state.jsSkill !== null) {
         return {
             jsSkill: state.jsSkill
         };
