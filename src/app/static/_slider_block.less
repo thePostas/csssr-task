@@ -16,7 +16,30 @@
   //Слайдер
   &-slider {
     display: flex;
+    position: relative;
     background: url("../img/slider_bar.png") no-repeat;
+    &-chosen {
+      transition: all 0.5s ease-out;
+      left: -5px;
+      top: -16px;
+      position: absolute;
+      width: 16px;
+      height: 14px;
+      background: url("../img/slider_arrow.png") no-repeat;
+      &_first {
+        transform: translateX(0px);
+      }
+      &_second {
+        transform: translateX(150px);
+      }
+      &_third {
+        transform: translateX(373px);
+      }
+      &_fourth {
+        transform: translateX(766px);
+      }
+
+    }
     &-bar {
       width: 100%;
       height: 30px;

@@ -12,7 +12,6 @@ class SkillsComponent extends Component{
     }
 
     render () {
-        console.log(this.props);
         const firstContainer = this.props.skills[0].map((item, index) => {
             return <CheckBox value={item.value} checked={item.checked} link={item.link} href={item.href} key={index}/>
           });
@@ -22,7 +21,6 @@ class SkillsComponent extends Component{
         const thirdContainer = this.props.skills[2].map((item, index) => {
             return <CheckBox value={item.value} checked={item.checked} link={item.link} href={item.href} key={index}/>
         });
-        console.log(firstContainer);
         return (
             <section className={'main-content__skills main-content__skills_position'}>
                 <div className="main-content__skills-title">Расскажите о себе чекбоксами</div>
