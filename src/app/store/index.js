@@ -5,12 +5,12 @@ import { logger } from './logger';
 
 const initialState = {
     fields: [
-    // {title: 'Полное ФИО', value: 'Поставцев Александр Александрович'},
-    // {title: 'Год рождения', value: '1988'},
-    // {title: 'Место жительства', value: 'г. Москва, ул. Широкая д.10 к.2'},
-    // {title: 'Скайп', value: 'thepostas'},
-    // {title: 'Почта', value: 'postas87@mail.ru'},
-],
+    {title: 'Полное ФИО', value: 'Поставцев Александр Александрович'},
+    {title: 'Год рождения', value: '1988'},
+    {title: 'Место жительства', value: 'г. Москва, ул. Широкая д.10 к.2'},
+    {title: 'Скайп', value: 'thepostas'},
+    {title: 'Почта', value: 'postas87@mail.ru'},
+    ],
     skills: [
         [
             {value: 'БЭМ/OOCSS', checked: true},
@@ -33,7 +33,7 @@ const initialState = {
         [
             {value: 'Использую GIT', checked: true},
             {value: 'С глазомером всё ок', checked: true},
-            {value: 'Читаю blog.csssr.ru', checked: false},
+            {value: 'Читаю ', checked: false, link: 'blog.csssr.ru', href: 'http://blog.csssr.ru'},
             {value: 'Я ленивый(-ая)', checked: false},
             {value: 'У меня хороший английский', checked: true},
         ]

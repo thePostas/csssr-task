@@ -12,17 +12,32 @@ export function taskReducer(state = {}, action) {
                 })
         }
         case "INITIALIZE": {
-            if (state.length === 0) {
-
-            }
-            return Object.assign(
-                {},
-                state,
-                {
-                    fields: action.payload.fields.map((field) => {
-                        return field;
+            if (action.payload.fields) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        fields: action.payload.fields.map((field) => {
+                            return field;
+                        })
                     })
-                })
+            }
+            if (action.payload.skills) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        skills: action.payload.skills.map((block, index) => {
+                            block.map((item) => {
+                                if (item.value === action.payload.title) {
+                                    item.checked = action.payload.checked;
+                                }
+                                return item;
+                            });
+                            return block;
+                        })
+                    })
+            }
         }
         case "UPDATE_CHECKBOX": {
             return Object.assign(

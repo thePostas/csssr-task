@@ -5,17 +5,22 @@ import { CheckBox } from "../containers/checkbox"
 class SkillsComponent extends Component{
     constructor(props) {
         super(props);
+        this.state = {
+            ...props,
+        };
+        this.initialize = this.props.initialize.bind(this)();
     }
 
     render () {
+        console.log(this.props);
         const firstContainer = this.props.skills[0].map((item, index) => {
-            return <CheckBox value={item.value} checked={item.checked} key={index}/>
+            return <CheckBox value={item.value} checked={item.checked} link={item.link} href={item.href} key={index}/>
           });
         const secondContainer = this.props.skills[1].map((item, index) => {
-            return <CheckBox value={item.value} checked={item.checked} key={index}/>
+            return <CheckBox value={item.value} checked={item.checked} link={item.link} href={item.href} key={index}/>
         });
         const thirdContainer = this.props.skills[2].map((item, index) => {
-            return <CheckBox value={item.value} checked={item.checked} key={index}/>
+            return <CheckBox value={item.value} checked={item.checked} link={item.link} href={item.href} key={index}/>
         });
         console.log(firstContainer);
         return (
@@ -25,7 +30,7 @@ class SkillsComponent extends Component{
                 <div className="main-content__skills-checkboxes-set">
                     <div className={'main-content__skills-checkbox-container'}>{firstContainer}</div>
                     <div className={'main-content__skills-checkbox-container'}>{secondContainer}</div>
-                    <div className={'main-content__skills-checkbox-container'}>{thirdContainer}</div>
+                    <div className={'main-content__skills-checkbox-container main-content__skills-checkbox-container-third'}>{thirdContainer}</div>
                 </div>
 
             </section>
@@ -33,8 +38,38 @@ class SkillsComponent extends Component{
     }
 }
 
+SkillsComponent.defaultProps = {
+    skills: [
+        [
+            {value: 'БЭМ/OOCSS', checked: true},
+            {value: 'Pug (Jade)', checked: true},
+            {value: 'Stylus/LESS/SASS', checked: true},
+            {value: 'Работаю с SVG', checked: false},
+            {value: 'Верстаю семантично', checked: false},
+            {value: 'Accessibility (A11Y)', checked: false},
+            {value: 'ES2015/ES2016', checked: false},
+        ],
+        [
+            {value: 'Gulp/GRUNT', checked: false},
+            {value: 'Webpack', checked: false},
+            {value: 'Дружу с WebGL', checked: false},
+            {value: 'jQuery', checked: false},
+            {value: 'Знаю/изучаю Angular', checked: false},
+            {value: 'Знаю/изучаю React', checked: false},
+            {value: 'Знаю/изучаю Node.js', checked: false},
+        ],
+        [
+            {value: 'Использую GIT', checked: false},
+            {value: 'С глазомером всё ок', checked: false},
+            {value: 'Читаю ', checked: false, link: 'blog.csssr.ru', href: 'http://blog.csssr.ru'},
+            {value: 'Я ленивый(-ая)', checked: false},
+            {value: 'У меня хороший английский', checked: false},
+        ]
+    ]
+};
+
 const mapStateToProps = function(state) {
-    if (!state.fields || state.fields.length !== 0) {
+    if (!state.skills || state.skills.length !== 0) {
         return {
             skills: state.skills
         };
@@ -47,7 +82,7 @@ const mapDispatchToProps = function(dispatch) {
             dispatch({
                 type: "INITIALIZE",
                 payload: {
-                    fields: this.state.fields
+                    skills: this.props.skills
                 }
             });
         }
