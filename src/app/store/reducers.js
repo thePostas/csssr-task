@@ -38,6 +38,14 @@ export function taskReducer(state = {}, action) {
                         })
                     })
             }
+            if (action.payload.jsSkill) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        jsSkill: action.payload.jsSkill
+                    })
+            }
         }
         case "UPDATE_CHECKBOX": {
             return Object.assign(
@@ -53,6 +61,14 @@ export function taskReducer(state = {}, action) {
                         });
                         return block;
                     })
+                })
+        }
+        case "SET_SLIDER_VALUE": {
+            return Object.assign(
+                {},
+                state,
+                {
+                    jsSkill: action.payload.jsSkill
                 })
         }
         default: return state;

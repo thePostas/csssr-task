@@ -37,7 +37,8 @@ const initialState = {
             {value: 'Я ленивый(-ая)', checked: false},
             {value: 'У меня хороший английский', checked: true},
         ]
-    ]
+    ],
+    jsSkill: 2
 };
 
 export const store = createStore(taskReducer, initialState, applyMiddleware(logger));
