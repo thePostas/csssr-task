@@ -5,7 +5,9 @@ class SliderComponent extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            ...props
+            ...props,
+            throttled: false,
+            prevPosition: this.props.jsSkill
         };
         this.ref = React.createRef();
         this.initialize = this.props.initialize.bind(this)();
@@ -13,34 +15,40 @@ class SliderComponent extends Component{
     }
 
     setPosition(position) {
-        switch (position) {
-            case 0: {
-                this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_first';
-                this.setSkill(position);
-                break;
+        if (!this.state.throttled) {
+            switch (position) {
+                case 0: {
+                    this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_first';
+                    this.setSkill(position);
+                    break;
+                }
+                case 1: {
+                    this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_second';
+                    this.setSkill(position);
+                    break;
+                }
+                case 2: {
+                    this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_third';
+                    this.setSkill(position);
+                    break;
+                }
+                case 3: {
+                    this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_fourth';
+                    this.setSkill(position);
+                    break;
+                }
             }
-            case 1: {
-                this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_second';
-                this.setSkill(position);
-                break;
-            }
-            case 2: {
-                this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_third';
-                this.setSkill(position);
-                break;
-            }
-            case 3: {
-                this.ref.current.className = 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_fourth';
-                this.setSkill(position);
-                break;
-            }
+            this.setState({throttled: true});
+            setTimeout(() => {
+                this.setState({throttled: false});
+            }, 500);
         }
     }
 
     render () {
         return (
             <div className={'main-content__js-block-slider'}>
-                <div className={'main-content__js-block-slider-chosen'} ref={this.ref}/>
+                <div className={this.state.jsSkill === 0 ? 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_first' : this.state.jsSkill === 1 ? 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_second' : this.state.jsSkill === 2 ? 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_third' : 'main-content__js-block-slider-chosen main-content__js-block-slider-chosen_fourth'} ref={this.ref}/>
                 <label className={'main-content__js-block-slider-label main-content__js-block-slider-label_first'} ><div className={'main-content__js-block-slider-bar'}/><input onClick = {this.setPosition.bind(this, 0)} className={'main-content__js-block-slider-input'} type={'radio'} name={'js-skill'} value={0}/><p className={'main-content__js-block-slider-title'}>Не владею</p></label>
                 <label className={'main-content__js-block-slider-label main-content__js-block-slider-label_second'}><div className={'main-content__js-block-slider-bar'}/><input onClick = {this.setPosition.bind(this, 1)} className={'main-content__js-block-slider-input'} type={'radio'} name={'js-skill'} value={1}/><p className={'main-content__js-block-slider-title'}>Использую готовые решения</p></label>
                 <label className={'main-content__js-block-slider-label main-content__js-block-slider-label_third'}><div className={'main-content__js-block-slider-bar'}/><input onClick = {this.setPosition.bind(this, 2)} className={'main-content__js-block-slider-input'} type={'radio'} name={'js-skill'} value={2}/><p className={'main-content__js-block-slider-title'}>Использую готовые решения и умею их переделывать</p></label>
@@ -55,7 +63,7 @@ SliderComponent.defaultProps = {
 };
 
 const mapStateToProps = function(state) {
-    if (state.jsSkill || state.jsSkill !== 'undefined' || state.jsSkill !== null) {
+    if (state.jsSkill && state.jsSkill !== 'undefined' && state.jsSkill !== null) {
         return {
             jsSkill: state.jsSkill
         };
