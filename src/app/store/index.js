@@ -38,7 +38,8 @@ const initialState = {
             {value: 'У меня хороший английский', checked: true},
         ]
     ],
-    jsSkill: 2
+    jsSkill: 2,
+    additionalInfo: 'тест'
 };
 
 export const store = createStore(taskReducer, initialState, applyMiddleware(logger));
