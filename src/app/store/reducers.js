@@ -46,6 +46,15 @@ export function taskReducer(state = {}, action) {
                         jsSkill: action.payload.jsSkill
                     })
             }
+            if (action.payload.additionalInfo) {
+                console.log(111);
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        additionalInfo: action.payload.additionalInfo
+                    })
+            }
         }
         case "UPDATE_CHECKBOX": {
             return Object.assign(
@@ -71,6 +80,14 @@ export function taskReducer(state = {}, action) {
                     jsSkill: action.payload.jsSkill
                 })
         }
+        case "ADDITIONAL_INFO_INPUT": {
+        return Object.assign(
+            {},
+            state,
+            {
+                additionalInfo: action.payload.additionalInfo
+            })
+    }
         default: return state;
     }
 }
