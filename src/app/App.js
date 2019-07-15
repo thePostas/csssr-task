@@ -1,8 +1,11 @@
-import { Provider } from 'react-redux'
 import React from 'react';
 import ReactDOM from 'react-dom';
-const slider = require('./js/slider');
+import { Profile } from './components/profile'
+import { Provider } from 'react-redux'
+import { store } from './store';
 
 const app = document.getElementById('root');
-slider();
-ReactDOM.render( <div className={'wrapper'}>Заглушка</div>, app);
+ReactDOM.render(
+    <Provider store={store}>
+        <Profile/>
+    </Provider>, app);

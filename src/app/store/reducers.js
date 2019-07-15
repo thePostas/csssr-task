@@ -1,56 +1,114 @@
-import { TaskItem } from "../containers/Task";
-
-import React from 'react';
-
 export function taskReducer(state = {}, action) {
     switch (action.type) {
-        case "CREATE_TASK": {
+        case "INPUT": {
             return Object.assign(
                 {},
                 state,
                 {
-                    tasks: state.tasks.concat([<TaskItem title={state.input} key={state.index} taskIndex={state.index} taskIsDone={false}/>]),
-                    input: '',
-                    index: state.index + 1
+                    fields: state.fields.map((field, index) => {
+                        if (index === action.payload.fieldId) field.value = action.payload.inputValue;
+                        return field;
+                    })
                 })
         }
-        case "HANDLE_INPUT": {
+        case "INITIALIZE": {
+            if (action.payload.fields) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        fields: action.payload.fields.map((field) => {
+                            return field;
+                        })
+                    })
+            }
+            if (action.payload.skills) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        skills: action.payload.skills.map((block) => {
+                            block.map((item) => {
+                                if (item.value === action.payload.title) {
+                                    item.checked = action.payload.checked;
+                                }
+                                return item;
+                            });
+                            return block;
+                        })
+                    })
+            }
+            if (action.payload.jsSkill) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        jsSkill: action.payload.jsSkill
+                    })
+            }
+            if (action.payload.additionalInfo) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        additionalInfo: action.payload.additionalInfo
+                    })
+            }
+            if (action.payload.date) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        date: action.payload.date
+                    })
+            }
+        }
+        case "UPDATE_CHECKBOX": {
             return Object.assign(
                 {},
                 state,
                 {
-                    input: action.payload.inputValue
+                    skills: state.skills.map((block) => {
+                        block.map((item) => {
+                            if (item.value === action.payload.title) {
+                                item.checked = action.payload.checked;
+                            }
+                            return item;
+                        });
+                        return block;
+                    })
                 })
         }
-        case "DELETE_TASK": {
-            let updatedTasks = state.tasks.filter((task) => {
-                    return action.payload.targetIndex !== task.props.taskIndex ? task : null
-            });
+        case "SET_SLIDER_VALUE": {
             return Object.assign(
                 {},
                 state,
                 {
-                    tasks: updatedTasks,
+                    jsSkill: action.payload.jsSkill
                 })
         }
-        case "UPDATE_TASKS": {
-            const updatedTasks = state.tasks.map((task) => {
-                if (action.payload.key === task.props.taskIndex) task.props.taskIsDone = action.payload.isDone;
-                return task;
-            });
+        case "ADDITIONAL_INFO_INPUT": {
+        return Object.assign(
+            {},
+            state,
+            {
+                additionalInfo: action.payload.additionalInfo
+            })
+        }
+        case "FUTURE-BLOCK-CHANGE": {
             return Object.assign(
                 {},
                 state,
                 {
-                    tasks: updatedTasks,
+                    future: action.payload.future
                 })
         }
-        case "CALCULATE_PERCENT": {
+        case "DATE_INPUT": {
             return Object.assign(
                 {},
                 state,
                 {
-                    percent: action.payload.total
+                    date: action.payload.date
                 })
         }
         default: return state;

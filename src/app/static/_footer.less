@@ -1,0 +1,32 @@
+//Футер
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2px 116px 19px 112px;
+  //Позиционирование
+  &_position {
+    margin-top: 64px;
+  }
+
+  //Инпут с датой заполнения
+  &__date {
+    &-title {
+      color: @title-color;
+      align-self: flex-end;
+    }
+    &-label {
+      display: flex;
+      cursor: pointer;
+      height: 58px;
+    }
+    &-input {
+      width: 198px;
+      font: 30px "Courier New", sans-serif;
+      margin-left: 17px;
+      padding-left: 10px;
+      background: transparent url("../img/date_border.png") no-repeat 0 48px;
+      border: none;
+    }
+  }
+}
