@@ -11,7 +11,7 @@ class AdditionalUserInfoComponent extends Component{
         this.initialize = this.props.initialize.bind(this)();
         this.onChange = this.props.onChange.bind(this);
         this.textAreaHeight = {
-            height:  (this.props.value.length / 42 + 1) * 58 + 'px'
+            height:  (this.props.value.length / 42 + 1) * 59 + 'px'
         };
     }
 
@@ -52,7 +52,7 @@ const mapDispatchToProps = function(dispatch) {
         },
         onChange: function (event) {
             if (event.target.value.length % 42 === 0) {
-                event.target.style.height = (event.target.value.length / 42 + 1) * 58 + 'px';
+                event.target.style.height = (event.target.value.length / 42 + 1) * 59 + 'px';
                 }
                 dispatch({
                     type: "ADDITIONAL_INFO_INPUT",
@@ -60,9 +60,6 @@ const mapDispatchToProps = function(dispatch) {
                         additionalInfo: event.target.value,
                     }
                 });
-        },
-        setSize: function (event) {
-            event.target.style.height = (event.target.value.length / 42 + 1) * 58 + 'px';
         }
     }
 };

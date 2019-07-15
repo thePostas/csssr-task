@@ -1,11 +1,11 @@
 import React from "react";
 import { HeaderTopSecret } from "./HeaderTopSecretStamp";
 import { HeaderLogo } from "./HeaderLogo";
-export const HeaderContainer = props => {
+export const HeaderComponent = props => {
     return (
-        <div className={"header"}>
+        <header className={"header"}>
             <HeaderLogo/>
             <HeaderTopSecret/>
-        </div>
+        </header>
     );
 };

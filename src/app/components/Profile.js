@@ -1,10 +1,12 @@
 import React from "react";
-import { HeaderContainer } from "./header/HeaderContainer";
+import { HeaderComponent } from "./header/HeaderContainer";
 import { MainContent } from "./main/mainContent"
+import { FooterComponent } from "./footer/footer"
 export const Profile = props => {
     return (
         <div className={"profile"}>
-            <HeaderContainer/>
+            <HeaderComponent/>
             <MainContent/>
+            <FooterComponent/>
         </div>);
 };

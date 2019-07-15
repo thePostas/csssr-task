@@ -54,6 +54,14 @@ export function taskReducer(state = {}, action) {
                         additionalInfo: action.payload.additionalInfo
                     })
             }
+            if (action.payload.date) {
+                return Object.assign(
+                    {},
+                    state,
+                    {
+                        date: action.payload.date
+                    })
+            }
         }
         case "UPDATE_CHECKBOX": {
             return Object.assign(
@@ -93,6 +101,14 @@ export function taskReducer(state = {}, action) {
                 state,
                 {
                     future: action.payload.future
+                })
+        }
+        case "DATE_INPUT": {
+            return Object.assign(
+                {},
+                state,
+                {
+                    date: action.payload.date
                 })
         }
         default: return state;

@@ -24,11 +24,21 @@
     display: flex;
     //Лейбл радиобаттона
     &-label {
+      position: relative;
       padding-left: 32px;
       padding-bottom: 3px;
       margin-right: 22px;
       background: url("../img/ellipse.png") no-repeat;
       cursor: pointer;
+      &_active:after {
+        content: '';
+        background: url("../img/ellipse_active.png") no-repeat;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        top: 8px;
+        left: 8.5px;
+      }
     }
     //Дефолтовый инпут
     &-input {
