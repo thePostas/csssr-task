@@ -1,0 +1,42 @@
+//Блок "Планы на будущее"
+.main-content__future-plans {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //Позиционирование
+  &_position {
+    margin-top: 5px;
+  }
+  //Заголовок блока
+  &-title {
+    font: 24px PTSansBold, sans-serif;
+    color: @title-color;
+    margin-bottom: 7px;
+  }
+  //Описание блока
+  &-description {
+    font: 15px PTSansRegular, sans-serif;
+    color: #3d3d3d;
+    margin-bottom: 16px;
+  }
+  //Блок с радиобаттонами
+  &-choice {
+    display: flex;
+    //Лейбл радиобаттона
+    &-label {
+      padding-left: 32px;
+      padding-bottom: 3px;
+      margin-right: 22px;
+      background: url("../img/ellipse.png") no-repeat;
+      cursor: pointer;
+    }
+    //Дефолтовый инпут
+    &-input {
+      display: none;
+    }
+    //Заголовок кнопки
+    &-title {
+      font: 20px PTSansBold, sans-serif;
+    }
+  }
+}

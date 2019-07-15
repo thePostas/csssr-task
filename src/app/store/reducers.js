@@ -27,7 +27,7 @@ export function taskReducer(state = {}, action) {
                     {},
                     state,
                     {
-                        skills: action.payload.skills.map((block, index) => {
+                        skills: action.payload.skills.map((block) => {
                             block.map((item) => {
                                 if (item.value === action.payload.title) {
                                     item.checked = action.payload.checked;
@@ -47,7 +47,6 @@ export function taskReducer(state = {}, action) {
                     })
             }
             if (action.payload.additionalInfo) {
-                console.log(111);
                 return Object.assign(
                     {},
                     state,
@@ -61,7 +60,7 @@ export function taskReducer(state = {}, action) {
                 {},
                 state,
                 {
-                    skills: state.skills.map((block, index) => {
+                    skills: state.skills.map((block) => {
                         block.map((item) => {
                             if (item.value === action.payload.title) {
                                 item.checked = action.payload.checked;
@@ -87,7 +86,15 @@ export function taskReducer(state = {}, action) {
             {
                 additionalInfo: action.payload.additionalInfo
             })
-    }
+        }
+        case "FUTURE-BLOCK-CHANGE": {
+            return Object.assign(
+                {},
+                state,
+                {
+                    future: action.payload.future
+                })
+        }
         default: return state;
     }
 }

@@ -39,7 +39,8 @@ const initialState = {
         ]
     ],
     jsSkill: 2,
-    additionalInfo: 'тест'
+    additionalInfo: 'тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест',
+    future: 1
 };
 
 export const store = createStore(taskReducer, initialState, applyMiddleware(logger));
